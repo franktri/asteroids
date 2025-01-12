@@ -34,7 +34,8 @@ class Player(CircleShape):
         self.position += forward * PLAYER_SPEED * dt
 
     def shoot(self, dt):
-        bullet = Shot(self.x, self.y, radius=SHOT_RADIUS)
+        bullet_x, bullet_y = self.position
+        bullet = Shot(bullet_x, bullet_y, radius=SHOT_RADIUS)
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
         bullet.velocity = PLAYER_SHOOT_SPEED * pygame.Vector2(0, 1).rotate(self.rotation)
         bullet.position += forward * PLAYER_SHOOT_SPEED * dt
